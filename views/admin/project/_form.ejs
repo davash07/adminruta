@@ -1,0 +1,147 @@
+<script>
+    $(document).ready(function() {
+        var max_fields      = 10;
+        var wrapper         = $(".input_fields_wrap");
+        var add_button      = $(".add_field_button");
+
+        var x = 1;
+        $(add_button).click(function(e){
+            e.preventDefault();
+            if(x < max_fields){
+                x++;
+                $(wrapper).append('<div class="text-center input_fields_wrap form-line"><a href="#" class="remove_field"><i class="material-icons">close</i> </a><input type="text" class="form-control" name="activities" required/><label class="form-label">Activities</label></div>');
+            }
+        });
+
+        $(wrapper).on("click",".remove_field", function(e){
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
+    });
+
+    function validateEmpty() {
+        document.getElementById("estimated_hours").defaultValue = "00";
+        document.getElementById("challenging_bugs").defaultValue = "00";
+        document.getElementById("trello_board_id").defaultValue = "--";
+    }
+</script>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center modal-title">New Project</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form_validation" method="POST" action="/admin/projects">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="name" required>
+                                    <label class="form-label">Name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Client</label>
+                            <div class="form-select">
+                                <select class="selectpicker" id="select" name="client_id" required>
+                                    <% clients.forEach(function(client) { %>
+                                    <option value="<%= client._id %>"> <%= client.company_name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" class="form-control" name="start_date" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Estimated End Date</label>
+                                <input type="date" class="form-control" name="estimated_end_date" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Real End Date</label>
+                                <input type="date" id="real_end_date" class="form-control" name="real_end_date">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Challenging Date</label>
+                                <input type="date" id="challenging_date" class="form-control" name="challenging_date">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="0" id="estimated_hours" class="form-control" name="estimated_hours">
+                                    <label class="form-label">Estimated Hours</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="0" id="challenging_bugs" class="form-control" name="challenging_bugs">
+                                    <label class="form-label">Challenging Bugs</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" id="trello_board_id" name="trello_board_id" >
+                                    <label class="form-label">Trello Board Id</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label>Status</label>
+                                <select class="selectpicker" name="status" required>
+                                    <option value="true">Active</option>
+                                    <option value="false" active>Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class=" col-sm-12">
+                            <div class="form-group form-float">
+                                <a href="#" class="add_field_button"><i class="material-icons">add</i></a>
+                                <div class="text-center input_fields_wrap form-line">
+
+                                    <input type="text" class="form-control" name="activities" required>
+                                    <label class="form-label">Activities</label>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <button type="submit" class="btn btn-info" onclick="validateEmpty()">Send</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

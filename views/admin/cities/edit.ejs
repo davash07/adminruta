@@ -1,0 +1,51 @@
+<% include ../../base/_header.ejs %>
+<% include ../../base/_navbar.ejs %>
+<% include ../../base/_aside.ejs %>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2 style="font-size: 30px">
+                Editar <%= cities.name %>
+            </h2>
+        </div>
+
+        <!--<div class="container">-->
+        <form action="/admin/cities/<%= cities._id %>" id="form_validation" method="post">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <label>Nombre</label>
+                            <input style="background-color: transparent" type="text" class="form-control"
+                                   name="name" value="<%= cities.name %>" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <label>Imagen</label>
+                            <input style="background-color: transparent" type="text" class="form-control" name="description" value="<%= cities.image %>" required>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <a class="btn btn-info" href="/admin/cities">Atras</a>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <input type="hidden" value="PUT" name="_method">
+                    <button type="submit" class="btn btn-info ">Actualizar</button>
+                </div>
+            </div>
+            <!--<input type="submit" value="Update"/>-->
+        </form>
+        <!--</div>-->
+    </div>
+</section>
+
+<% include ../../base/_footer.ejs %>
+

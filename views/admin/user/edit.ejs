@@ -1,0 +1,79 @@
+<% include ../../base/_header.ejs %>
+<% include ../../base/_navbar.ejs %>
+<% include ../../base/_aside.ejs %>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2 style="font-size: 30px">
+                Edit User <%= user.name %>
+            </h2>
+        </div>
+        <form action="/admin/users/<%= user._id %>" style="margin-top: 5%" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <label>Name</label>
+                            <input style="background-color: transparent" type="text" class="form-control" name="name" value="<%= user.name %>" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <label>Email</label>
+                            <input style="background-color: transparent" type="email" class="form-control" name="email" value="<%= user.email %>" required>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-sm-6">
+                    <div class="form-group">
+                        <div class="form-select">
+                            <label>Rol</label><br>
+                            <select class="selectpicker" name="rol" required>
+                                <% if(user.rol == "admin"){ %>
+                                <option value="admin" selected>Administrator</option>
+                                <option value="user">User</option>
+                                <% }else{ %>
+                                <option value="admin">Administrator</option>
+                                <option value="user" selected>User</option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Status</label><br>
+                        <select class="selectpicker" name="status" required>
+                            <option value="true">Active</option>
+                            <option value="false" active>Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Biography</label>
+                                <input style="background-color: transparent" type="text" class="form-control" name="bio" value="<%= user.bio %>" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-5 text-center">
+                    <a class="btn btn-info" href="/admin/users">Back</a>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <input type="hidden" value="PUT" name="_method">
+                    <button type="submit" class="btn btn-info ">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<% include ../../base/_footer.ejs %>

@@ -1,0 +1,15 @@
+<% include ../../base/_header.ejs %>
+<% include ../../base/_navbar.ejs%>
+<% include ../../base/_aside.ejs %>
+<% include _form.ejs%>
+<!-- Tablet Project -->
+<% if(currentUser.rol != 'admin'){ %>
+<script type="text/javascript">
+    window.location.replace("/projects");
+</script>
+<% } else{ %>
+<% } %>
+
+<% include _table.ejs %>
+
+<% include ../../base/_footer.ejs %>

@@ -1,0 +1,48 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2 style="font-size: 30px">
+                Users
+                <button type="button" data-toggle="modal" data-target="#myModal"
+                        class="btn bg-blue-grey btn-circle waves-effect waves-circle waves-float">
+                    <i class="material-icons">add</i>
+                </button>
+            </h2>
+        </div>
+        <div class="body">
+            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                <thead>
+                <tr class="text-center">
+                    <th class="text-center" >Name</th>
+                    <th class="text-center" >Biography</th>
+                    <th class="text-center" >Role</th>
+                    <th class="text-center" >Email</th>
+                    <th class="text-center" ></th>
+                    <th class="text-center" ></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <% users.forEach(function(user) { %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.bio %></td>
+                    <td><%= user.rol %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                            <div class="col-sm-6">
+                                <a class="confirm-delete" data-id="1" href="/admin/users/<%= user._id %>/destroy" data-toggle="modal" data-target="#confirm-delete"><i class="material-icons">close</i> </a>
+                            </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-6">
+                            <a href="/admin/users/<%= user._id %>/edit"><i class="material-icons">create</i> </a>
+                        </div>
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

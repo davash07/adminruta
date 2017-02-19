@@ -1,0 +1,105 @@
+<script>
+    function validateEmpty() {
+        document.getElementById("minutes").defaultValue = "00";
+        document.getElementById("comment").defaultValue = "--";
+        document.getElementById("")
+    }
+</script>
+<script>
+    $(document).ready(function(){
+        //función click
+        $("#bEnviar").click(function(){
+
+            var hours = $("#hours").val();
+            var minutes = $("#minutes").val();
+
+            if(hours == 0 && minutes == 0){
+                alert("El Tiempo No Puede Ir En 0")
+                return false;
+            }
+
+        });//click
+    });//ready
+</script>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-center">Register Time On <%= project.name %></h2>
+            </div>
+            <div class="modal-body">
+                <form id="form_validation" action="/time_record" method="POST">
+                    <div class="form-group form-float" hidden>
+                        <div class="form-line">
+                            <input type="text" class="form-control" value="<%= project._id %>" name="project_id"
+                                   required>
+                            <label class="form-label">Id Project</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <label>Phase</label>
+                                <select class="selectpicker" id="activities" name="activity" required>
+                                    <option value="">--------</option>
+                                    <% if (project.activities === null) { %>
+                                    <option value="">--------</option>
+                                    <% } else { %>
+                                    <% for(var i = 0; i < project.activities.length; i++) { %>
+                                    <option value="<%= project.activities[i] %>"><%= project.activities[i] %></option>
+                                    <% } %>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float col-sm-6">
+                                <div class="form-line">
+                                    <label>Date</label><br>
+                                    <input type="date" name="date" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="0" class="form-control" id="hours" name="hours" required>
+                                    <label class="form-label">Hours</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="0" max="60" class="form-control" id="minutes" name="minutes">
+                                    <label class="form-label">Minutes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <textarea name="comment" id="comment" cols="30" rows="5" class="form-control no-resize"></textarea>
+                            <label class="form-label">Notes</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <center>
+                            <button class="btn btn-primary waves-effect" id="bEnviar" onclick="validateEmpty()" type="submit">Save</button>
+                        </center>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

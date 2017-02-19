@@ -1,0 +1,51 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2 style="font-size: 30px">
+                Projects
+                <button type="button" data-toggle="modal" data-target="#myModal"
+                        class="btn bg-blue-grey btn-circle waves-effect waves-circle waves-float">
+                    <i class="material-icons">add</i>
+                </button>
+            </h2>
+        </div>
+        <div class="body">
+            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                <thead>
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Tipo</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody class="text-center">
+                <% projects.forEach(function(project) { %>
+                <tr>
+                    <td><%= project.name %></td>
+                    <td><%= project.start_date %></td>
+                    <td><%= project.estimated_end_date %></td>
+                    <td><%= project.challenging_date %></td>
+                    <td><%= project.challenging_bugs %></td>
+                    <td><%= project.status %></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="/admin/projects/<%= project._id %>/edit"><i class="material-icons">create</i> </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="/admin/projects/<%= project._id %>"><i class="material-icons">zoom_in</i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

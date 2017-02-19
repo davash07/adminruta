@@ -1,0 +1,50 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2 style="font-size: 30px">
+                Eventos
+                <button type="button" data-toggle="modal" data-target="#myModal"
+                        class="btn bg-blue-grey btn-circle waves-effect waves-circle waves-float">
+                    <i class="material-icons">add</i>
+                </button>
+            </h2>
+        </div>
+        <div class="body">
+            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                <thead>
+                <tr>
+                    <th class="text-center">Titulo</th>
+                    <th class="text-center">type</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% events.forEach(function(event) { %>
+                <tr>
+                    <td><%= event.title %></td>
+                    <td><%= event.type %></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="/admin/events/<%= event._id %>/edit"><i class="material-icons">create</i></a>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="/admin/events/<%= event._id %>/destroy"><i class="material-icons">close</i></a>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>

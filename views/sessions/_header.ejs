@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Favicon Icon -->
+    <!--<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico"/>-->
+
+    <!-- Style Login -->
+    <link href="/stylesheets/style-login.css" rel="stylesheet">
+
+</head>
+<body>
+
+<script>
+    $("#sessions-button").click(function(event){
+        event.preventDefault();
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+    });
+</script>
