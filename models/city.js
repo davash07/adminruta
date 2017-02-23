@@ -9,13 +9,9 @@ var citySchema = new Schema({
         type: String,
         required : true
     },
-    // type: {
-    //     type: String,
-    //     required: true
-    // },
-    // title: {
-    //     type: String
-    // },
+    image_id: {
+        type: String
+    },
     image: {
         type: String
     },

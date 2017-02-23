@@ -1,90 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>SunDevs Manager</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
 
-    <!-- Favicon Icon -->
-    <!--<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico"/>-->
+    <title>RutaDorada</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="img/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
 
-    <!-- Bootstrap Core Css -->
-    <link href="/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-    <!-- Waves Effect Css -->
-    <link href="/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/responsive.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/animate.css" rel="stylesheet" type="text/css">
+    <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
 
-    <!-- Animation Css -->
-    <link href="/plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- Morris Chart Css-->
-    <link href="/plugins/morrisjs/morris.css" rel="stylesheet" />
-
-    <!-- Custom Css -->
-    <link href="/stylesheets/style.css" rel="stylesheet">
-
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="/stylesheets/all-themes.css" rel="stylesheet" />
-
-    <!-- JQuery DataTable Css -->
-    <link href="/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <!---->
-    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> &lt;!&ndash; load bootstrap css &ndash;&gt;-->
-    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> &lt;!&ndash; load fontawesome &ndash;&gt;-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="/javascripts/jquery.1.8.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-scrolltofixed.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.isotope.js"></script>
+    <script type="text/javascript" src="/javascripts/wow.js"></script>
+    <script type="text/javascript" src="/javascripts/classie.js"></script>
 </head>
-
-<body class="theme-blue">
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="preloader">
-            <div class="spinner-layer pl-red">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <p>Espere Por Favor...</p>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.js-basic-example').DataTable();
-
-        //Exportable table
-        $('.js-exportable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        });
-    });
-
-    $(document).ready(function() {
-        $('a[data-confirm]').click(function(ev) {
-            var href = $(this).attr('href');
-            if (!$('#confirm-delete').length) {
-                $('body').append('<div id="dataConfirmModal" class="modal fade" role="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3 id="dataConfirmLabel">Please Confirm</h3></div><div class="modal-body"></div><div class="modal-footer"><button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button><a class="btn btn-primary" id="dataConfirmOK">OK</a></div></div>');
-            }
-            $('#confirm-delete').find('.modal-body').text($(this).attr('data-confirm'));
-            $('#dataConfirmOK').attr('href', href);
-            $('#confirm-delete').modal({show:true});
-            return false;
-        });
-    });
-
-    function validateEmpty() {
-        document.getElementById("bio").defaultValue = "--";
-    }
-</script>
+<body>

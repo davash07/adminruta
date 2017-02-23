@@ -1,0 +1,53 @@
+<!-- views/pages/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head.ejs %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../../partials/header.ejs %>
+    <h3 class="ui center aligned icon header">
+        New Post
+    </h3>
+</header>
+
+<main>
+    <div class="ui grid container">
+        <div class="ui two column centered grid">
+            <div class="column">
+                <form id="form_validation" method="POST" enctype="multipart/form-data" action="/admin/cities">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="name" required>
+                                    <label class="form-label">Nombre</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Image</label>
+                            <input name="image" type="file" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-info" onclick="validateEmpty()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                    <!--<button class="ui primary button" type="submit">Post</button>-->
+                <!--</form>-->
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../../base_admin %>
+</body>
+</html>

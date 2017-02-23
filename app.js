@@ -27,6 +27,7 @@ require("./routes/admin/directories")(router_admin);
 // require("./routes/times_records")(router);
 // require("./routes/projects")(router);
 // require("./routes/dashboard")(router);
+require("./routes/site/index")(router);
 require("./routes/users")(router);
 require('./config/setuppassport')(passport);
 var app = express();
